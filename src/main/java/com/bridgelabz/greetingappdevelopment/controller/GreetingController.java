@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.greetingappdevelopment.service.GreetingAppService;
-import com.bridgelabz.greetingappdevelopment.usermodel.Usermodel;
-
-
-
-
+import com.bridgelabz.greetingappdevelopment.usermodel.UserModel;
 
 @RestController
 @RequestMapping("/start")
@@ -32,7 +28,8 @@ public class GreetingController {
 	}
 	
 	@PostMapping("/post")
-	public String greeting1(@RequestBody Usermodel user) {
+	public String greeting1(@RequestBody UserModel user) {
+		service.getGreeting(user);
 		return 	service.sayGreeting(user);
 	}
 }
